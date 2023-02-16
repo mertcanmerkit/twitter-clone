@@ -1,13 +1,83 @@
-<script setup>
-</script>
-
 <template>
   <div>
-    <router-link to="/">Home</router-link>
-    <router-link to="/about">About</router-link>
+    <div id="layers" style="display: inline;">
+      <MobileHeader v-if="isMobile" />
+      <MobileNavigation v-if="isMobile" />
+    </div>
+    <div class="container">
+      <NavigationColumn v-if="isMediaXxs" />
+      <main role="main">
+        <div class="content">
+          <div class="content-container">
+            <PrimaryColumn />
+            <SidebarColumn v-if="isMediaLtMd" />
+          </div>
+        </div>
+      </main>
+    </div>
   </div>
 </template>
 
-<style scoped lang="scss">
 
+
+<script setup>
+import SidebarColumn from '@/components/SidebarColumn.vue';
+import PrimaryColumn from '@/components/PrimaryColumn.vue';
+import NavigationColumn from '@/components/NavigationColumn.vue';
+import MobileHeader from '@/components/MobileHeader.vue';
+import MobileNavigation from '@/components/MobileNavigation.vue';
+
+import { useMedia } from '@/js/helpers/window-context';
+
+const isMobile = useMedia('mobile');
+const isMediaXxs = useMedia("xxs");
+const isMediaLtMd = useMedia("lt-md");
+</script>
+
+<style scoped lang="scss">
+.container {
+  display: flex;
+  position: relative;
+}
+
+main {
+  flex-grow: 1;
+  background-color: #82ff00;
+
+  .content {
+    width: 990px;
+
+    .content-container {
+      display: flex;
+      justify-content: space-between;
+
+
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) and (max-width: 1095px) {
+  main {
+    .content {
+      width: 920px;
+    }
+  }
+}
+
+@include sm {
+  main {
+    .content {
+      width: 600px;
+    }
+  }
+}
+
+@include lt-sm {
+
+  main {
+    .content {
+      width: 100%;
+    }
+  }
+}
 </style>

@@ -1,0 +1,23 @@
+<template>
+    <header role="banner">
+        <div>
+            <div>AA</div>
+        </div>
+    </header>
+</template>
+
+<script setup>
+
+</script>
+
+<style scoped lang="scss">
+header {
+    position: sticky;
+    z-index: 10;
+    top: 0;
+    width: 100%;
+    padding: 1rem;
+    backdrop-filter: blur(12px);
+    background-color: rgba(0, 0, 0, 0.65);
+}
+</style>
