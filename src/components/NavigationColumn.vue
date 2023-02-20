@@ -1,0 +1,83 @@
+<template>
+    <header role="banner">
+        <div class="navigation-column">
+            <div class="navigation-column-fixed-container">
+                <div>
+                    <div class="logo">
+                        <IconTwitterLogo />
+                    </div>
+                    <div class="navigation">
+                        <nav role="navigation">
+                            <router-link :to="{ name: home }">
+                                <IconHomeFill v-if="$route.name == 'home'" />
+                                <IconHome v-else />
+                            </router-link>
+                        </nav>
+                    </div>
+                    <div>
+                        <NewTweetButton isInNavigationSection="true" />
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+</header>
+</template>
+
+<script setup>
+import IconTwitterLogo from '@/components/icons/IconTwitterLogo.vue';
+import IconHome from '@/components/icons/IconHome.vue';
+import IconHomeFill from '@/components/icons/IconHomeFill.vue';
+import IconHashtag from '@/components/icons/IconHashtag.vue';
+
+import NewTweetButton from '@/components/shared/NewTweetButton.vue';
+
+import { useMedia } from '@/js/helpers/window-context.js'
+
+const isMediaLtLg = useMedia("lt-lg");
+</script>
+
+<style scoped lang="scss">
+header {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    background-color: #ff8686;
+}
+
+@include lt-sm {
+    header {
+        flex-grow: 0;
+    }
+}
+
+.navigation-column {
+    width: 200px;
+
+    .navigation-column-fixed-container {
+        position: fixed;
+        display: flex;
+        height: 100%;
+
+        &>div:first-child {
+            overflow-x: hidden;
+            overflow-y: auto;
+            width: 200px;
+        }
+    }
+}
+
+@include lt-lg {
+
+    .navigation-column {
+        width: 88px;
+
+        .navigation-column-fixed-container {
+            &>div:first-child {
+                width: 88px;
+            }
+        }
+
+    }
+}
+</style>
