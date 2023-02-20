@@ -22,6 +22,11 @@ html, body {
   height: 100%;
 }
 
+a{
+  color: inherit;
+  text-decoration: inherit;
+}
+
 @font-face {
   font-family: TwitterChirp;
   src: url(https://abs.twimg.com/responsive-web/client-web/Chirp-Light.3a18e64a.woff2) format('woff2');

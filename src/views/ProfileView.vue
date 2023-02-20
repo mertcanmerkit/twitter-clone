@@ -1,14 +1,12 @@
 <template>
-<div>
-  <PrimaryColumn />
+  <div>
+   <h1>Profile</h1>
 </div>
 </template>
 
 
 
 <script setup>
-import PrimaryColumn from '@/components/PrimaryColumn.vue';
-
 </script>
 
 <style scoped lang="scss">

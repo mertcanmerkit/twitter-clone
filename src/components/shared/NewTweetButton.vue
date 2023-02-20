@@ -1,6 +1,6 @@
 <template>
     <div class="new-tweet-btn" :class="{ 'icon': isBtnIcon || isInNavigationSection && !isMediaLtLg }">
-        <router-link to="/asd">
+        <router-link to="/">
             <div v-if="isBtnIcon || isInNavigationSection && !isMediaLtLg">
                 <IconNewTweet />
             </div>

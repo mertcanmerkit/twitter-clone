@@ -2,7 +2,7 @@
     <div class="bottom-bar">
         <div class="floating-action-button-base">
             <aside>
-                <NewTweetButton class="float-action-btn" isBtnIcon="true" />
+                <NewTweetButton class="float-action-btn" isBtnIcon />
             </aside>
         </div>
         <div class="navigation">
