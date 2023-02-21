@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import IconComponent from "@/components/shared/NavigationIconComponent.vue";
+import IconComponent from "@/components/navigation-column/ui/NavigationBaseIcon.vue";
 import {useMedia} from "@/js/helpers/window-context.js";
 
 const isMediaLtLg = useMedia("lt-lg");

@@ -6,7 +6,6 @@
           <div class="navigation">
             <nav role="navigation">
               <NavigationButton v-for="(navRoute, key) in navRoutes" :key="key" :navRoute="navRoute"/>
-
             </nav>
           </div>
           <div>
@@ -21,12 +20,8 @@
 
 <script setup>
 import NewTweetButton from '@/components/shared/NewTweetButton.vue';
-import NavigationButton from "@/components/shared/NavigationButton.vue";
+import NavigationButton from "@/components/navigation-column/ui/NavigationButton.vue";
 import router from "@/router/index.js";
-import IconHomeFill from "@/components/icons/IconHomeFill.vue";
-import IconHome from "@/components/icons/IconHome.vue";
-import IconUser from "@/components/icons/IconUser.vue";
-import IconUserFill from "@/components/icons/IconUserFill.vue";
 
 
 const navRoutes = router.options.routes.filter((r) => (r.meta ? r.meta['isInNavigationColumn'] : false) === true)

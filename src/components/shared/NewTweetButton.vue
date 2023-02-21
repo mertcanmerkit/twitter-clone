@@ -2,7 +2,7 @@
     <div class="new-tweet-btn" :class="{ 'icon': isBtnIcon || isInNavigationSection && !isMediaLtLg }">
         <router-link to="/">
             <div v-if="isBtnIcon || isInNavigationSection && !isMediaLtLg">
-                <IconNewTweet />
+                <Icon.NewTweet />
             </div>
             <div v-else>
                 <span>Tweetle</span>
@@ -13,7 +13,7 @@
 
 <script setup>
 import { useMedia } from '@/js/helpers/window-context.js'
-import IconNewTweet from '../icons/IconNewTweet.vue';
+import * as Icon from "@/components/icons/utils/icon-components";
 
 const isMediaLtLg = useMedia("lt-lg");
 

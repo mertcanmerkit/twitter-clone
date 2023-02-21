@@ -19,10 +19,10 @@
 </template>
 
 <script setup>
-import SidebarColumn from '@/components/SidebarColumn.vue';
-import NavigationColumn from '@/components/NavigationColumn.vue';
-import MobileHeader from '@/components/MobileHeader.vue';
-import MobileNavigation from '@/components/MobileNavigation.vue';
+import SidebarColumn from '@/components/sidebar-column/SidebarColumn.vue';
+import NavigationColumn from '@/components/navigation-column/NavigationColumn.vue';
+import MobileHeader from '@/components/mobile/header/MobileHeader.vue';
+import MobileNavigation from '@/components/mobile/navigation/MobileNavigation.vue';
 
 
 import { useMedia } from '@/js/helpers/window-context';

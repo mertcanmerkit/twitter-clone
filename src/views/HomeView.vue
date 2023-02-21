@@ -7,7 +7,7 @@
 
 
 <script setup>
-import PrimaryColumn from '@/components/PrimaryColumn.vue';
+import PrimaryColumn from '@/components/primary-column/PrimaryColumn.vue';
 
 </script>
 
