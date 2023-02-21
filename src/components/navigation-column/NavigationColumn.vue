@@ -5,11 +5,14 @@
         <div>
           <div class="navigation">
             <nav role="navigation">
-              <NavigationButton v-for="(navRoute, key) in navRoutes" :key="key" :navRoute="navRoute"/>
+              <NavigationButton
+                v-for="(navRoute, key) in navRoutes"
+                :key="key"
+                :navRoute="navRoute" />
             </nav>
           </div>
           <div>
-            <NewTweetButton isInNavigationSection/>
+            <NewTweetButton isInNavigationSection />
           </div>
         </div>
         <div></div>
@@ -20,12 +23,12 @@
 
 <script setup>
 import NewTweetButton from '@/components/shared/NewTweetButton.vue';
-import NavigationButton from "@/components/navigation-column/ui/NavigationButton.vue";
-import router from "@/router/index.js";
+import NavigationButton from '@/components/navigation-column/ui/NavigationButton.vue';
+import router from '@/router/index.js';
 
-
-const navRoutes = router.options.routes.filter((r) => (r.meta ? r.meta['isInNavigationColumn'] : false) === true)
-
+const navRoutes = router.options.routes.filter(
+  (r) => (r.meta ? r.meta['isInNavigationColumn'] : false) === true
+);
 </script>
 
 <style scoped lang="scss">
@@ -59,7 +62,6 @@ header {
 }
 
 @include lt-lg {
-
   .navigation-column {
     width: 88px;
 
@@ -68,7 +70,6 @@ header {
         width: 88px;
       }
     }
-
   }
 }
 </style>

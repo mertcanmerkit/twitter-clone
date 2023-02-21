@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="layers" style="display: inline;">
+    <div id="layers" style="display: inline">
       <MobileHeader v-if="isMobile" />
       <MobileNavigation v-if="isMobile" />
     </div>
@@ -24,16 +24,15 @@ import NavigationColumn from '@/components/navigation-column/NavigationColumn.vu
 import MobileHeader from '@/components/mobile/header/MobileHeader.vue';
 import MobileNavigation from '@/components/mobile/navigation/MobileNavigation.vue';
 
-
 import { useMedia } from '@/js/helpers/window-context';
 
 const isMobile = useMedia('mobile');
-const isMediaXxs = useMedia("xxs");
-const isMediaLtMd = useMedia("lt-md");
+const isMediaXxs = useMedia('xxs');
+const isMediaLtMd = useMedia('lt-md');
 </script>
 
 <style lang="scss">
-@import "styles/main";
+@import 'styles/main';
 
 .container {
   display: flex;
@@ -50,8 +49,6 @@ main {
     .content-container {
       display: flex;
       justify-content: space-between;
-
-
     }
   }
 }
@@ -73,7 +70,6 @@ main {
 }
 
 @include lt-sm {
-
   main {
     .content {
       width: 100%;

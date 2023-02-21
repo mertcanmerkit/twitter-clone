@@ -1,16 +1,12 @@
 <template>
   <div>
-   <h1>Profile</h1>
+    <h1>Profile</h1>
     <Icon.Bell></Icon.Bell>
-</div>
+  </div>
 </template>
 
-
-
 <script setup>
-import * as Icon from "@/components/icons/utils/icon-components";
+import * as Icon from '@/components/icons/utils/icon-components';
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

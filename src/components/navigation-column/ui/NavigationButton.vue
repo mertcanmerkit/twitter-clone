@@ -1,7 +1,9 @@
 <template>
   <router-link class="nav-item" :to="{ name: navRoute.name }">
     <div>
-      <IconComponent :iconName="navRoute.meta.iconName" :navRouteName="navRoute.name" />
+      <IconComponent
+        :iconName="navRoute.meta.iconName"
+        :navRouteName="navRoute.name" />
       <div v-if="isMediaLtLg && navRoute.name !== '/'">
         <span>{{ navRoute.meta.displayName }}</span>
       </div>
@@ -10,24 +12,24 @@
 </template>
 
 <script setup>
-import IconComponent from "@/components/navigation-column/ui/NavigationBaseIcon.vue";
-import {useMedia} from "@/js/helpers/window-context.js";
+import IconComponent from '@/components/navigation-column/ui/NavigationBaseIcon.vue';
+import { useMedia } from '@/js/helpers/window-context.js';
 
-const isMediaLtLg = useMedia("lt-lg");
+const isMediaLtLg = useMedia('lt-lg');
 
 const props = defineProps({
   navRoute: {
-    type: Object,
+    type: Object
   }
 });
 </script>
 
 <style scoped lang="scss">
-.nav-item{
-  display: flex
+.nav-item {
+  display: flex;
 }
 
-.nav-item > div{
+.nav-item > div {
   background: red;
   padding: 12px;
   display: flex;
