@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar-column">
+  <div v-if="isMediaLtMd" class="sidebar-column">
     <div class="sidebar-column-sticky-container">
       <div class="search">Search</div>
       <div class="topics">Aa</div>
@@ -8,7 +8,11 @@
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMedia } from "@/js/helpers/window-context";
+
+const isMediaLtMd = useMedia("lt-md");
+</script>
 
 <style scoped lang="scss">
 $sidebar-column-width: 350px;

@@ -1,13 +1,12 @@
 <template>
-  <header role="banner">
+  <header v-if="isMediaXxs" role="banner">
     <div class="navigation-column">
       <div class="navigation-column-fixed-container">
         <div>
           <div class="navigation">
             <nav role="navigation">
               <NavigationButton
-                v-for="(navRoute, key) in navRoutes"
-                :key="key"
+                v-for="navRoute in navRoutes"
                 :navRoute="navRoute" />
             </nav>
           </div>
@@ -22,12 +21,15 @@
 </template>
 
 <script setup>
-import NewTweetButton from '@/components/shared/NewTweetButton.vue';
-import NavigationButton from '@/components/navigation-column/ui/NavigationButton.vue';
-import router from '@/router/index.js';
+import NewTweetButton from "@/components/shared/NewTweetButton.vue";
+import NavigationButton from "@/components/navigation-column/ui/NavigationButton.vue";
+import router from "@/router/index.js";
+import { useMedia } from "@/js/helpers/window-context";
+
+const isMediaXxs = useMedia("xxs");
 
 const navRoutes = router.options.routes.filter(
-  (r) => (r.meta ? r.meta['isInNavigationColumn'] : false) === true
+  (r) => (r.meta ? r.meta["isInNavigationColumn"] : false) === true
 );
 </script>
 

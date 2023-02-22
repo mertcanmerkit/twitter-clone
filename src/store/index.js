@@ -1,9 +1,10 @@
-import { createStore } from 'vuex';
+import { createStore } from "vuex";
 
 // Create a new store instance.
 const store = createStore({
   state: {
-    user: 'asd'
+    user: 'asd',
+    isAuth: false
   },
   getters: {},
   actions: {},

@@ -17,12 +17,13 @@
 </template>
 
 <script setup>
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent } from "vue";
+
 const iconComponent = defineAsyncComponent(() =>
   import(`../../icons/Icon${props.iconName}.vue`)
 );
 const iconFillComponent = defineAsyncComponent(() =>
   import(`../../icons/Icon${props.iconName}Fill.vue`)
 );
-const props = defineProps(['iconName', 'navRouteName']);
+const props = defineProps(["iconName", "navRouteName"]);
 </script>

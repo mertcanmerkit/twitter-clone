@@ -1,5 +1,5 @@
 <template>
-  <div class="bottom-bar">
+  <div v-if="isMobile" class="bottom-bar">
     <div class="floating-action-button-base">
       <aside>
         <NewTweetButton class="float-action-btn" isBtnIcon />
@@ -14,7 +14,10 @@
 </template>
 
 <script setup>
-import NewTweetButton from '@/components/shared/NewTweetButton.vue';
+import NewTweetButton from "@/components/shared/NewTweetButton.vue";
+import { useMedia } from "@/js/helpers/window-context";
+
+const isMobile = useMedia("mobile");
 </script>
 
 <style scoped lang="scss">

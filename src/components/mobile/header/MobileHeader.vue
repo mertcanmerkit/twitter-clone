@@ -1,12 +1,16 @@
 <template>
-  <header role="banner">
+  <header v-if="isMobile" role="banner">
     <div>
       <div>AA</div>
     </div>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { useMedia } from "@/js/helpers/window-context";
+
+const isMobile = useMedia("mobile");
+</script>
 
 <style scoped lang="scss">
 header {
