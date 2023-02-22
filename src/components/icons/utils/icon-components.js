@@ -17,3 +17,5 @@ export { default as TwitterLogo } from '../IconTwitterLogo.vue';
 export { default as TwitterLogoFill } from '../IconTwitterLogoFill.vue';
 export { default as User } from '../IconUser.vue';
 export { default as UserFill } from '../IconUserFill.vue';
+export { default as Settings } from '../IconSettings.vue';
+export { default as SettingsFill } from '../IconSettingsFill.vue';

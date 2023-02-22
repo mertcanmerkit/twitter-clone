@@ -68,3 +68,19 @@ main {
     }
   }
 }
+
+.nav-item {
+  display: flex;
+}
+
+.nav-item > div {
+  background: red;
+  padding: 12px;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.dropdown{
+  cursor: pointer;
+}
