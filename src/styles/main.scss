@@ -1,8 +1,10 @@
-@import './globals/globals';
+@import 'globals/global';
+@import 'globals/typography';
 
 // Units
 
 @import './components/unit/buttons';
+@import './components/unit/modal';
 
 // Components
 
