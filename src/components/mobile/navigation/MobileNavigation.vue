@@ -14,10 +14,10 @@
 </template>
 
 <script setup>
-import NewTweetButton from "@/components/shared/NewTweetButton.vue";
-import { useMedia } from "@/js/helpers/window-context";
+import NewTweetButton from '@/components/shared/NewTweetButton.vue';
+import { useMedia } from '@/js/helpers/window-context';
 
-const isMobile = useMedia("mobile");
+const isMobile = useMedia('mobile');
 </script>
 
 <style scoped lang="scss">

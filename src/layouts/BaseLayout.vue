@@ -4,7 +4,7 @@
       <slot name="layers"></slot>
     </div>
     <div class="container">
-      <slot name="navigation"></slot>
+      <NavigationColumn />
       <main role="main">
         <div class="content">
           <div class="content-container">
@@ -17,7 +17,7 @@
 </template>
 
 <script setup>
+import NavigationColumn from '@/components/navigation-column/NavigationColumn.vue';
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

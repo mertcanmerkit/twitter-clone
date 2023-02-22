@@ -3,23 +3,23 @@
 </template>
 
 <script setup>
-import * as Icon from "@/components/icons/utils/icon-components";
-import {ref, watchEffect} from "vue";
-import {useRoute} from "vue-router";
+import * as Icon from '@/components/icons/utils/icon-components';
+import { ref, watchEffect } from 'vue';
+import { useRoute } from 'vue-router';
 
-const route = useRoute()
+const route = useRoute();
 
-const mIconName = ref('')
+const mIconName = ref('');
 
 watchEffect(() => {
-  mIconName.value = props.iconName
+  mIconName.value = props.iconName;
   if (route.name === props.navRouteName) {
-    mIconName.value = props.iconName + 'Fill'
+    mIconName.value = props.iconName + 'Fill';
   }
   if (props.handleExploreNavActive) {
-    mIconName.value = 'HashtagFill'
+    mIconName.value = 'HashtagFill';
   }
-})
+});
 
 const Home = Icon.Home;
 const HomeFill = Icon.HomeFill;
@@ -32,7 +32,6 @@ const TwitterLogoFill = Icon.TwitterLogoFill;
 const Settings = Icon.Settings;
 const SettingsFill = Icon.SettingsFill;
 
-
 const icons = {
   Home,
   HomeFill,
@@ -44,7 +43,11 @@ const icons = {
   TwitterLogoFill,
   Settings,
   SettingsFill
-}
+};
 
-const props = defineProps(["iconName", "navRouteName", "handleExploreNavActive"]);
+const props = defineProps([
+  'iconName',
+  'navRouteName',
+  'handleExploreNavActive'
+]);
 </script>

@@ -7,9 +7,9 @@
 </template>
 
 <script setup>
-import { useMedia } from "@/js/helpers/window-context";
+import { useMedia } from '@/js/helpers/window-context';
 
-const isMobile = useMedia("mobile");
+const isMobile = useMedia('mobile');
 </script>
 
 <style scoped lang="scss">

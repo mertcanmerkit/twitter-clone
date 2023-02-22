@@ -4,9 +4,6 @@
       <MobileHeader />
       <MobileNavigation />
     </template>
-    <template #navigation>
-      <NavigationColumn />
-    </template>
     <template #content>
       <router-view></router-view>
       <SidebarColumn />
@@ -15,11 +12,11 @@
 </template>
 
 <script setup>
-import BaseLayout from "@/layouts/BaseLayout.vue";
-import SidebarColumn from "@/components/sidebar-column/SidebarColumn.vue";
-import NavigationColumn from "@/components/navigation-column/NavigationColumn.vue";
-import MobileHeader from "@/components/mobile/header/MobileHeader.vue";
-import MobileNavigation from "@/components/mobile/navigation/MobileNavigation.vue";</script>
+import BaseLayout from '@/layouts/BaseLayout.vue';
+import SidebarColumn from '@/components/sidebar-column/SidebarColumn.vue';
+import NavigationColumn from '@/components/navigation-column/NavigationColumn.vue';
+import MobileHeader from '@/components/mobile/header/MobileHeader.vue';
+import MobileNavigation from '@/components/mobile/navigation/MobileNavigation.vue';
+</script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

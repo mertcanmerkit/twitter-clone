@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import ProfileView from '../views/ProfileView.vue';
 import LoginView from '@/views/LoginView.vue';
-import SettingsView from "@/views/SettingsView.vue";
+import SettingsView from '@/views/SettingsView.vue';
 import store from '@/store/index.js';
 
 const router = createRouter({
@@ -85,7 +85,7 @@ const router = createRouter({
         displayName: 'Settings',
         iconName: 'Settings',
         isInNavigationColumn: true,
-        isGuestOnly: true,
+        isGuestOnly: true
       }
     },
     {

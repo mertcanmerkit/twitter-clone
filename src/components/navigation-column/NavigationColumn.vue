@@ -6,11 +6,11 @@
           <div class="navigation">
             <nav role="navigation">
               <NavigationButton
-                  v-for="navRoute in navRoutes"
-                  :navRoute="navRoute"/>
+                v-for="navRoute in navRoutes"
+                :navRoute="navRoute" />
               <div class="dropdown nav-item" v-if="$store.state.isAuth">
                 <div>
-                  <Icon.MoreCircle/>
+                  <Icon.MoreCircle />
                   <div v-if="isMediaLtLg">
                     <span class="fs-xl">More</span>
                   </div>
@@ -19,7 +19,7 @@
             </nav>
           </div>
           <div>
-            <NewTweetButton isInNavigationSection/>
+            <NewTweetButton isInNavigationSection />
           </div>
         </div>
         <div></div>
@@ -29,34 +29,32 @@
 </template>
 
 <script setup>
-import * as Icon from "@/components/icons/utils/icon-components";
-import NewTweetButton from "@/components/shared/NewTweetButton.vue";
-import NavigationButton from "@/components/navigation-column/ui/NavigationButton.vue";
-import router from "@/router/index.js";
-import {useMedia} from "@/js/helpers/window-context";
-import {useStore} from "vuex";
+import * as Icon from '@/components/icons/utils/icon-components';
+import NewTweetButton from '@/components/shared/NewTweetButton.vue';
+import NavigationButton from '@/components/navigation-column/ui/NavigationButton.vue';
+import router from '@/router/index.js';
+import { useMedia } from '@/js/helpers/window-context';
+import { useStore } from 'vuex';
 
-const isMediaXxs = useMedia("xxs");
-const isMediaLtLg = useMedia("lt-lg");
+const isMediaXxs = useMedia('xxs');
+const isMediaLtLg = useMedia('lt-lg');
 
-const navRoutes = router.options.routes.filter(
-    (r) => {
-      //(r.meta ? r.meta["isInNavigationColumn"] : false) === true
-      if (r.meta) {
-        if (r.meta["isInNavigationColumn"]) {
-          if (useStore().state.isAuth) {
-            if (!r.meta["isGuestOnly"]) {
-              return true;
-            }
-          } else {
-            if (!r.meta["requiresAuth"]) {
-              return true;
-            }
-          }
+const navRoutes = router.options.routes.filter((r) => {
+  //(r.meta ? r.meta["isInNavigationColumn"] : false) === true
+  if (r.meta) {
+    if (r.meta['isInNavigationColumn']) {
+      if (useStore().state.isAuth) {
+        if (!r.meta['isGuestOnly']) {
+          return true;
+        }
+      } else {
+        if (!r.meta['requiresAuth']) {
+          return true;
         }
       }
     }
-);
+  }
+});
 </script>
 
 <style scoped lang="scss">

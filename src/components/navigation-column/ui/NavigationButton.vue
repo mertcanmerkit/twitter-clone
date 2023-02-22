@@ -4,11 +4,11 @@
       <NavigationBaseIcon
         :iconName="navRoute.meta.iconName"
         :navRouteName="navRoute.name"
-        :handleExploreNavActive="handleExploreNavActive"
-      />
+        :handleExploreNavActive="handleExploreNavActive" />
       <div v-if="isMediaLtLg && navRoute.name !== '/'">
-        <span :class="{'fw-bold': isActivePage || handleExploreNavActive}"
-              class="fs-xl">
+        <span
+          :class="{ 'fw-bold': isActivePage || handleExploreNavActive }"
+          class="fs-xl">
           {{ navRoute.meta.displayName }}
         </span>
       </div>
@@ -17,24 +17,25 @@
 </template>
 
 <script setup>
-import NavigationBaseIcon from "@/components/navigation-column/ui/NavigationBaseIcon.vue";
-import {computed, watchEffect,ref} from "vue";
-import { useRoute } from "vue-router";
-import { useMedia } from "@/js/helpers/window-context.js";
-import {useStore} from "vuex";
+import NavigationBaseIcon from '@/components/navigation-column/ui/NavigationBaseIcon.vue';
+import { computed, watchEffect, ref } from 'vue';
+import { useRoute } from 'vue-router';
+import { useMedia } from '@/js/helpers/window-context.js';
+import { useStore } from 'vuex';
 
 const route = useRoute();
-const store = useStore()
+const store = useStore();
 const isActivePage = computed(() => route.name === props.navRoute.name);
-const isMediaLtLg = useMedia("lt-lg");
+const isMediaLtLg = useMedia('lt-lg');
 
 const handleExploreNavActive = ref(false);
 
 watchEffect(() => {
-  handleExploreNavActive.value = route.name === '/' && props.navRoute.name === 'explore' && !store.state.isAuth
-})
-
-
+  handleExploreNavActive.value =
+    route.name === '/' &&
+    props.navRoute.name === 'explore' &&
+    !store.state.isAuth;
+});
 
 const props = defineProps({
   navRoute: {
@@ -43,6 +44,4 @@ const props = defineProps({
 });
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

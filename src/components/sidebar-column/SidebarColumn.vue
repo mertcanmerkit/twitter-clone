@@ -9,9 +9,9 @@
 </template>
 
 <script setup>
-import { useMedia } from "@/js/helpers/window-context";
+import { useMedia } from '@/js/helpers/window-context';
 
-const isMediaLtMd = useMedia("lt-md");
+const isMediaLtMd = useMedia('lt-md');
 </script>
 
 <style scoped lang="scss">
