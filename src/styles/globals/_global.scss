@@ -25,6 +25,14 @@ body {
   height: 100%;
 }
 
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  box-shadow: none;
+  resize: none;
+}
+
 .container {
   display: flex;
   position: relative;
@@ -33,7 +41,7 @@ body {
 main {
   min-height: 100vh;
   flex-grow: 1;
-  background-color: #82ff00;
+  background-color: $color-canvas-primary;
 
   .content {
     width: 990px;
@@ -74,11 +82,31 @@ main {
 }
 
 .nav-item > div {
-  background: red;
-  padding: 12px;
   display: flex;
-  gap: 0.5rem;
+  padding: 12px;
   align-items: center;
+  background-color: $color-canvas-transparent;
+  transition-duration: 0.2s;
+}
+
+.nav-item:hover > div {
+  background-color: $color-hover-primary;
+  border-radius: 9999px;
+}
+
+.nav-item > div.logo {
+  margin-bottom: 4px;
+}
+
+.nav-item:hover > div.logo {
+  background-color: $color-hover-highlight;
+}
+
+.nav-item {
+  span {
+    margin-right: 16px;
+    margin-left: 20px;
+  }
 }
 
 .dropdown {

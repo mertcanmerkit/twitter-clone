@@ -12,13 +12,13 @@
                 <div>
                   <Icon.MoreCircle />
                   <div v-if="isMediaLtLg">
-                    <span class="fs-xl">More</span>
+                    <span class="fs-xl lh-lg">More</span>
                   </div>
                 </div>
               </div>
             </nav>
           </div>
-          <div>
+          <div class="new-tweet-btn-container">
             <NewTweetButton isInNavigationSection />
           </div>
         </div>
@@ -58,11 +58,21 @@ const navRoutes = router.options.routes.filter((r) => {
 </script>
 
 <style scoped lang="scss">
+$navigation-column-height: 270px;
+
+.new-tweet-btn-container {
+  .new-tweet-btn {
+    width: 90%;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+}
+
 header {
   display: flex;
   flex-grow: 1;
   justify-content: flex-end;
-  background-color: #ff8686;
+  background-color: $color-canvas-primary;
 }
 
 @include lt-sm {
@@ -72,7 +82,7 @@ header {
 }
 
 .navigation-column {
-  width: 200px;
+  width: $navigation-column-height;
 
   .navigation-column-fixed-container {
     position: fixed;
@@ -80,9 +90,12 @@ header {
     height: 100%;
 
     & > div:first-child {
+      width: $navigation-column-height;
+      padding-left: 12px;
+      padding-right: 12px;
+
       overflow-x: hidden;
       overflow-y: auto;
-      width: 200px;
     }
   }
 }

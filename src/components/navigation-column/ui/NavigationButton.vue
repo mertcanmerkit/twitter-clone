@@ -1,6 +1,6 @@
 <template>
   <router-link class="nav-item" :to="{ name: navRoute.name }">
-    <div>
+    <div :class="{ logo: navRoute.name === '/' }">
       <NavigationBaseIcon
         :iconName="navRoute.meta.iconName"
         :navRouteName="navRoute.name"
@@ -8,7 +8,7 @@
       <div v-if="isMediaLtLg && navRoute.name !== '/'">
         <span
           :class="{ 'fw-bold': isActivePage || handleExploreNavActive }"
-          class="fs-xl">
+          class="fs-xl lh-lg">
           {{ navRoute.meta.displayName }}
         </span>
       </div>

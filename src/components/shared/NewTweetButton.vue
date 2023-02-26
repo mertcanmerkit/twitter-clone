@@ -1,7 +1,11 @@
 <template>
   <div
     class="new-tweet-btn"
-    :class="{ icon: isBtnIcon || (isInNavigationSection && !isMediaLtLg) }">
+    :class="{
+      icon: isBtnIcon || (isInNavigationSection && !isMediaLtLg),
+      nav: isInNavigationSection,
+      disable: isSendBtnDisable
+    }">
     <router-link to="/">
       <div v-if="isBtnIcon || (isInNavigationSection && !isMediaLtLg)">
         <Icon.NewTweet />
@@ -25,6 +29,10 @@ const props = defineProps({
     default: false
   },
   isInNavigationSection: {
+    type: Boolean,
+    default: false
+  },
+  isSendBtnDisable: {
     type: Boolean,
     default: false
   }
