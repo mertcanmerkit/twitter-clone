@@ -6,7 +6,7 @@
       nav: isInNavigationSection,
       disable: isSendBtnDisable
     }">
-    <router-link to="/">
+    <router-link :to="{ name: 'addNewTweet' }">
       <div v-if="isBtnIcon || (isInNavigationSection && !isMediaLtLg)">
         <Icon.NewTweet />
       </div>

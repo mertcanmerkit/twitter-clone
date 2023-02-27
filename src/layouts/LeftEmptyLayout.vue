@@ -4,9 +4,6 @@
       <MobileHeader />
       <MobileNavigation />
     </template>
-    <template #content>
-      <router-view></router-view>
-    </template>
   </BaseLayout>
 </template>
 

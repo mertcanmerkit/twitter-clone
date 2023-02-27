@@ -10,35 +10,31 @@
     </div>
     <div class="new-tweet-form-container">
       <textarea
+        @focus="textAreaFocus"
+        @input="textAreaTexting"
         name="tweetTextarea"
         placeholder="Ne oluyor?"
-        id="tweetArea"></textarea>
+        ref="textArea"></textarea>
       <div class="hr" v-if="showRuler"></div>
       <div class="tweet-control-container">
         <div class="tweet-options">
           <div class="tweet-option">
-            <div
-              style="
-                width: 20px;
-                height: 20px;
-                background-color: #1d9bf0;
-              "></div>
+            <Icon.Media />
           </div>
           <div class="tweet-option">
-            <div
-              style="
-                width: 20px;
-                height: 20px;
-                background-color: #1d9bf0;
-              "></div>
+            <Icon.Gif />
           </div>
           <div class="tweet-option">
-            <div
-              style="
-                width: 20px;
-                height: 20px;
-                background-color: #1d9bf0;
-              "></div>
+            <Icon.Survey />
+          </div>
+          <div class="tweet-option">
+            <Icon.Emoji />
+          </div>
+          <div class="tweet-option">
+            <Icon.Schedule />
+          </div>
+          <div class="tweet-option disable">
+            <Icon.Location />
           </div>
         </div>
         <div style="margin-top: 12px; margin-left: 12px">
@@ -50,36 +46,43 @@
 </template>
 
 <script setup>
+import * as Icon from '@/components/icons/utils/icon-components';
 import NewTweetButton from '@/components/shared/NewTweetButton.vue';
 import { onMounted, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute();
 const showRuler = ref(false);
 const isSendBtnDisable = ref(true);
 
+const textArea = ref(null);
+
 onMounted(() => {
-  const textArea = document.querySelector('#tweetArea');
-
-  textArea.addEventListener('focus', function () {
-    showRuler.value = true;
-  });
-
-  textArea.addEventListener('input', function () {
-    setDynamicHeight();
-    setSendButton();
-  });
-
-  function setDynamicHeight() {
-    textArea.style.height = 0;
-    textArea.style.height = textArea.scrollHeight + 'px';
-  }
-
-  function setSendButton() {
-    isSendBtnDisable.value = textArea.value.length <= 0;
+  if (route.name === 'addNewTweet') {
+    textArea.value.focus();
   }
 });
+
+function textAreaFocus() {
+  showRuler.value = true;
+}
+
+function textAreaTexting(event) {
+  setDynamicHeight(event.target);
+  setSendButton(event.target);
+}
+
+function setDynamicHeight(el) {
+  el.style.height = 0;
+  el.style.height = el.scrollHeight + 'px';
+}
+
+function setSendButton(el) {
+  isSendBtnDisable.value = el.value.length <= 0 || el.value.length > 280;
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .add-new-tweet {
   display: flex;
   padding: 8px 16px;
@@ -113,6 +116,7 @@ onMounted(() => {
   align-items: center;
   margin-top: 12px;
   margin-left: -8px;
+  transition-duration: 0.2s;
 
   .tweet-option {
     display: flex;
@@ -120,7 +124,19 @@ onMounted(() => {
     align-items: center;
     width: 36px;
     height: 36px;
+    cursor: pointer;
     background-color: $color-canvas-transparent;
+    color: $color-text-link;
+
+    &:hover {
+      background-color: $color-hover-highlight;
+      border-radius: 9999px;
+    }
+
+    &.disable {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 }
 

@@ -1,5 +1,7 @@
 <template>
   <div class="primary-column">
+    <router-link :to="{ name: 'flowLogin' }">Go to flowLogin</router-link>
+
     <Breadcrumb />
     <AddNewTweetSection />
     <div style="height: 1px; background-color: rgb(47, 51, 54)"></div>

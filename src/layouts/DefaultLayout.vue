@@ -5,7 +5,6 @@
       <MobileNavigation />
     </template>
     <template #content>
-      <router-view></router-view>
       <SidebarColumn />
     </template>
   </BaseLayout>

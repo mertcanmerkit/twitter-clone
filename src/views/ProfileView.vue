@@ -1,7 +1,10 @@
 <template>
   <div>
-    <h1>Profile</h1>
-    <Icon.Bell></Icon.Bell>
+    <div>
+      <router-link :to="{ name: 'flowLogin' }">Go to flowLogin</router-link>
+      <h1>Profile</h1>
+      <Icon.Bell></Icon.Bell>
+    </div>
   </div>
 </template>
 
