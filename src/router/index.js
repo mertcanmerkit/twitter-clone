@@ -139,14 +139,14 @@ function handleModalRoute(to, from, next, component) {
     true;
 
   to.matched[0].components = {
-    default: import(`@/views/${component}.vue`),
-    previous: import(`@/views/${ROUTE_CONSTANTS.EMPTY.COMPONENT}.vue`)
+    default: () => import(`@/views/${component}.vue`),
+    previous: () => import(`@/views/${ROUTE_CONSTANTS.EMPTY.COMPONENT}.vue`)
   };
 
   if (from.matched.length > 0 && isPreviousRouteSupportModalView) {
     to.matched[0].components = {
-      default: import(`@/views/${component}.vue`),
-      previous: from.matched[0].components.default
+      default: () => import(`@/views/${component}.vue`),
+      previous: () => from.matched[0].components.default
     };
     to.meta.layout = from.matched[0].meta.layout;
     to.meta.displayName = from.matched[0].meta.displayName;
