@@ -6,7 +6,7 @@
       nav: isInNavigationSection,
       disable: isSendBtnDisable
     }">
-    <router-link :to="{ name: 'addNewTweet' }">
+    <router-link :to="{ name: ROUTE_CONSTANTS.ADD_NEW_TWEET.NAME }">
       <div v-if="isBtnIcon || (isInNavigationSection && !isMediaLtLg)">
         <Icon.NewTweet />
       </div>
@@ -20,6 +20,7 @@
 <script setup>
 import { useMedia } from '@/js/helpers/window-context.js';
 import * as Icon from '@/components/icons/utils/icon-components';
+import { ROUTE_CONSTANTS } from '@/router/constants.js';
 
 const isMediaLtLg = useMedia('lt-lg');
 

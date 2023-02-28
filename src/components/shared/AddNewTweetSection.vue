@@ -1,7 +1,7 @@
 <template>
   <div class="add-new-tweet">
     <div class="user-image-container">
-      <router-link :to="{ name: 'profile' }">
+      <router-link :to="{ name: ROUTE_CONSTANTS.PROFILE.NAME }">
         <img
           alt="Mertcan Merkit"
           draggable="true"
@@ -12,8 +12,10 @@
       <textarea
         @focus="textAreaFocus"
         @input="textAreaTexting"
+        @onMounted=""
         name="tweetTextarea"
         placeholder="Ne oluyor?"
+        id="mTextArea"
         ref="textArea"></textarea>
       <div class="hr" v-if="showRuler"></div>
       <div class="tweet-control-container">
@@ -50,6 +52,7 @@ import * as Icon from '@/components/icons/utils/icon-components';
 import NewTweetButton from '@/components/shared/NewTweetButton.vue';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import { ROUTE_CONSTANTS } from '@/router/constants.js';
 
 const route = useRoute();
 const showRuler = ref(false);
@@ -58,8 +61,9 @@ const isSendBtnDisable = ref(true);
 const textArea = ref(null);
 
 onMounted(() => {
-  if (route.name === 'addNewTweet') {
-    textArea.value.focus();
+  const mTextArea = document.getElementById('mTextArea');
+  if (route.name === ROUTE_CONSTANTS.ADD_NEW_TWEET.NAME) {
+    mTextArea.focus();
   }
 });
 

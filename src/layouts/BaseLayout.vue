@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div id="layers" style="display: inline" v-if="$route.name !== 'flowLogin'">
+    <div
+      id="layers"
+      style="display: inline"
+      v-if="$route.name !== ROUTE_CONSTANTS.LOGIN.NAME">
       <slot name="layers"></slot>
     </div>
     <div class="container">
@@ -24,6 +27,7 @@
 <script setup>
 import NavigationColumn from '@/components/navigation-column/NavigationColumn.vue';
 import { useMedia } from '@/js/helpers/window-context.js';
+import { ROUTE_CONSTANTS } from '@/router/constants.js';
 
 const isMobile = useMedia('mobile');
 </script>

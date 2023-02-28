@@ -1,6 +1,8 @@
 <template>
   <div class="primary-column">
-    <router-link :to="{ name: 'flowLogin' }">Go to flowLogin</router-link>
+    <router-link :to="{ name: ROUTE_CONSTANTS.LOGIN.NAME }"
+      >Go to flowLogin</router-link
+    >
 
     <Breadcrumb />
     <AddNewTweetSection />
@@ -71,6 +73,7 @@
 import NewTweetButton from '@/components/shared/NewTweetButton.vue';
 import AddNewTweetSection from '@/components/shared/AddNewTweetSection.vue';
 import Breadcrumb from '@/components/shared/Breadcrumb.vue';
+import { ROUTE_CONSTANTS } from '@/router/constants.js';
 </script>
 
 <style scoped lang="scss">
