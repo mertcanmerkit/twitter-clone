@@ -12,7 +12,6 @@
       <textarea
         @focus="textAreaFocus"
         @input="textAreaTexting"
-        @onMounted=""
         name="tweetTextarea"
         placeholder="Ne oluyor?"
         id="mTextArea"
@@ -53,34 +52,27 @@ import NewTweetButton from '@/components/shared/NewTweetButton.vue';
 import { onMounted, ref } from 'vue';
 import { useRoute } from 'vue-router';
 import { ROUTE_CONSTANTS } from '@/router/constants.js';
-
 const route = useRoute();
 const showRuler = ref(false);
 const isSendBtnDisable = ref(true);
-
 const textArea = ref(null);
-
 onMounted(() => {
   const mTextArea = document.getElementById('mTextArea');
   if (route.name === ROUTE_CONSTANTS.ADD_NEW_TWEET.NAME) {
     mTextArea.focus();
   }
 });
-
 function textAreaFocus() {
   showRuler.value = true;
 }
-
 function textAreaTexting(event) {
   setDynamicHeight(event.target);
   setSendButton(event.target);
 }
-
 function setDynamicHeight(el) {
   el.style.height = 0;
   el.style.height = el.scrollHeight + 'px';
 }
-
 function setSendButton(el) {
   isSendBtnDisable.value = el.value.length <= 0 || el.value.length > 280;
 }
@@ -93,35 +85,21 @@ function setSendButton(el) {
   background-color: $color-canvas-primary;
 }
 
-.user-image-container {
-  padding-top: 4px;
-  margin-right: 12px;
-
-  img {
-    width: 48px;
-    height: 48px;
-    border-radius: 9999px;
-  }
-}
-
 .new-tweet-form-container {
   width: 100%;
 }
-
 .tweet-control-container {
   display: flex;
   justify-content: space-between;
   margin-left: 2px;
   margin-right: 2px;
 }
-
 .tweet-options {
   display: flex;
   align-items: center;
   margin-top: 12px;
   margin-left: -8px;
   transition-duration: 0.2s;
-
   .tweet-option {
     display: flex;
     justify-content: center;
@@ -131,19 +109,16 @@ function setSendButton(el) {
     cursor: pointer;
     background-color: $color-canvas-transparent;
     color: $color-text-link;
-
     &:hover {
       background-color: $color-hover-highlight;
       border-radius: 9999px;
     }
-
     &.disable {
       opacity: 0.5;
       pointer-events: none;
     }
   }
 }
-
 textarea[name='tweetTextarea'] {
   width: 100%;
   height: 24px;

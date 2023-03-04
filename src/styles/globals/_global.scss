@@ -112,3 +112,13 @@ main {
 .dropdown {
   cursor: pointer;
 }
+
+.user-image-container {
+  padding-top: 4px;
+  margin-right: 12px;
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 9999px;
+  }
+}
