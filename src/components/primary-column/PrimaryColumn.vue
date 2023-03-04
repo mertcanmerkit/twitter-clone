@@ -9,7 +9,7 @@
     <div style="height: 1px; background-color: rgb(47, 51, 54)"></div>
     <section role="region">
       <div aria-label="Timeline">
-        <TweetSection v-for="n in 1" />
+        <TweetSection v-for="n in 10" />
       </div>
     </section>
   </div>
