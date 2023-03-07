@@ -1,6 +1,6 @@
 <template>
   <div v-if="isMediaLtSm">
-    <div class="modal-fade"></div>
+    <div @click="$router.back()" class="modal-fade"></div>
     <div class="modal">
       <a @click="$router.back()" class="text-link">Close</a>
       <AddNewTweetSection />

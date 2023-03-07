@@ -5,11 +5,11 @@
     </router-link>
 
     <Breadcrumb />
-    <AddNewTweetSection v-if="!isMobile"/>
+    <AddNewTweetSection v-if="!isMobile" />
     <div style="height: 1px; background-color: rgb(47, 51, 54)"></div>
-    <section role="region">
-      <div aria-label="Timeline">
-        <TweetSection v-for="n in 10" />
+    <section class="timeline-container" role="region">
+      <div class="timeline" aria-label="Timeline">
+        <TweetSection v-for="n in 20" />
       </div>
     </section>
   </div>
@@ -27,6 +27,14 @@ const isMobile = useMedia('mobile');
 </script>
 
 <style scoped lang="scss">
+.timeline-container {
+  display: grid;
+}
+
+.timeline {
+  overflow: hidden;
+}
+
 .primary-column {
   width: 100%;
   max-width: 600px;

@@ -54,3 +54,36 @@
   box-shadow: rgb(217 217 217 / 20%) 0px 0px 5px,
     rgb(217 217 217 / 25%) 0px 1px 4px 1px;
 }
+
+.tweet-button {
+  display: flex;
+  align-items: center;
+
+  svg {
+    color: $color-text-secondary;
+    transition-duration: 0.2s;
+  }
+
+  span {
+    padding: 0 4px;
+    color: $color-text-secondary;
+    transition-duration: 0.2s;
+  }
+
+  @include xxs {
+    span {
+      padding: 0 2px;
+    }
+  }
+}
+
+.tweet-button > :first-child {
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  border-radius: 9999px;
+}
+
+.tweet-button:hover > :first-child {
+  background-color: $color-hover-primary;
+}

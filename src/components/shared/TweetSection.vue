@@ -1,83 +1,57 @@
 <template>
-  <div style="position: relative">
-    <div class="cellInnerDiv" style="position: absolute; width: 100%">
-      <article class="tweet-container">
-        <div class="tweet">
-          <div class="user-image-container">
-            <router-link :to="{ name: ROUTE_CONSTANTS.PROFILE.NAME }">
-              <img
-                  alt="Mertcan Merkit"
-                  draggable="true"
-                  src="https://pbs.twimg.com/profile_images/1286571288731975681/roFNwVsk_x96.jpg"/>
+  <div class="cellInnerDiv">
+    <article class="tweet-container">
+      <div class="user-image-container">
+        <router-link :to="{ name: ROUTE_CONSTANTS.PROFILE.NAME }">
+          <img
+            alt="Mertcan Merkit"
+            draggable="true"
+            src="https://pbs.twimg.com/profile_images/1286571288731975681/roFNwVsk_x96.jpg" />
+        </router-link>
+      </div>
+      <div class="tweet">
+        <div class="tweet-header">
+          <div class="tweet-header-content text-ellipsis-container">
+            <router-link
+              :to="{ name: ROUTE_CONSTANTS.PROFILE.NAME }"
+              class="text-ellipsis">
+              <span class="fw-bold">Mertcan Merkit</span>
             </router-link>
+            <div class="tweet-info text-ellipsis-container">
+              <span class="text-ellipsis text-secondary">@mertcanmerkit</span>
+              <span class="spacing-dot text-secondary">·</span>
+              <span class="date text-secondary">Mar 7</span>
+            </div>
           </div>
-          <div style="flex-grow: 1; min-width: 0">
-            <div class="tweet-owner-info">
-              <div style="display: flex;min-width: 0">
-                <div class="text-ellipsis">
-                  <router-link
-                      class="action"
-                      :to="{ name: ROUTE_CONSTANTS.PROFILE.NAME }">
-                    <div><span>Mertcan Nur Faruk Merkit </span></div>
-                  </router-link>
-                </div>
-                <div style="margin-left: 4px;display: flex;min-width: 0">
-                  <div class="text-ellipsis">
-                    <div><span>@mertcanmerkit</span></div>
-                  </div>
-                  <span>·</span>
-                  <div class="text-ellipsis">
-                    <div>
-                      <span>12s</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <Icon.Emoji style="height: 17.5px"/>
-              </div>
-            </div>
-            <div class="tweet-content">
-              <span>Content</span>
-            </div>
-            <div class="tweet-buttons">
-              <Icon.Bell/>
-              <Icon.Emoji/>
-              <Icon.Gif/>
-              <Icon.Hashtag/>
-              <Icon.Letter/>
-            </div>
+          <div>
+            <TweetButton class="options-button" iconName="ThreeDot" />
           </div>
         </div>
-      </article>
-    </div>
-  </div>
-  <!--  <div>
-      <div style="position: relative">
-        <div data-testid="cellInnerDiv" style="position: absolute; width: 100%">
-          <div style="display: flex">
-            <div class="text-ellipsis">
-              <a href="#">
-                <div>
-                  <span>
-                    sedat kapanoğlu mertcan merkit aman aman son aman son son son
-                    3 grrr kılıçdaroğlu aday olmasın lütfen
-                  </span>
-                </div>
-              </a>
-            </div>
-            <div>
-              <Icon.Emoji />
-            </div>
-          </div>
+        <div class="tweet-content">
+          <span>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae id
+            minus reiciendis repellat temporibus. Consequatur eaque, esse
+            exercitationem illo laboriosam laborum minima porro qui sit sunt,
+            vel voluptatibus! Blanditiis commodi iste itaque magni vel! Amet
+            eius enim facilis iure mollitia non praesentium quia quibusdam!
+            Aliquam excepturi expedita possimus recusandae sed!
+          </span>
+        </div>
+        <div class="tweet-buttons">
+          <TweetButton iconName="Comments" count="123" />
+          <TweetButton iconName="Retweet" count="123" />
+          <TweetButton iconName="Heart" count="123" />
+          <TweetButton iconName="Interaction" count="123" />
+          <TweetButton iconName="Share" />
         </div>
       </div>
-    </div>-->
+    </article>
+  </div>
 </template>
 
 <script setup>
-import * as Icon from '@/components/icons/utils/icon-components';
-import {ROUTE_CONSTANTS} from '@/router/constants.js';
+import { ROUTE_CONSTANTS } from '@/router/constants.js';
+import TweetButton from '@/components/shared/TweetButton.vue';
 </script>
 
 <style lang="scss" scoped>
@@ -91,13 +65,11 @@ import {ROUTE_CONSTANTS} from '@/router/constants.js';
 
 .tweet-container {
   padding: 12px 16px;
-}
-
-.tweet {
   display: flex;
 }
 
-.tweet-owner-photo {
+.tweet {
+  min-width: 0;
 }
 
 .tweet-content {
@@ -106,56 +78,92 @@ import {ROUTE_CONSTANTS} from '@/router/constants.js';
   }
 }
 
-.tweet-owner-info {
+.tweet-header {
   display: flex;
   justify-content: space-between;
+}
+
+.tweet-header-content {
+  display: flex;
+}
+
+.tweet-info {
+  display: flex;
+  margin-left: 4px;
+}
+
+.options-button {
+  margin: -8px -8px -8px 20px;
+}
+
+.spacing-dot {
+  padding: 0 4px;
+}
+
+.date {
+  white-space: nowrap;
 }
 
 .tweet-buttons {
   display: flex;
   justify-content: space-between;
   max-width: 425px;
+  margin-top: 12px;
+}
 
-  & svg {
-    height: 17.5px;
-    color: $color-text-secondary;
+.tweet-button:nth-child(1):hover,
+.tweet-button:nth-child(4):hover,
+.tweet-button:nth-child(5):hover {
+  > :first-child {
+    background-color: $color-hover-highlight;
+
+    svg {
+      color: $color-text-link;
+    }
   }
 
-  @include xxs {
-    & svg:nth-child(3) {
-      display: none;
-    }
+  span {
+    color: $color-text-link;
   }
 }
 
-/* ==========================================================================
-   Text Ellipsis in Flex Box
-   ========================================================================== */
+.tweet-button:nth-child(2):hover {
+  > :first-child {
+    background-color: $color-hover-green;
 
-/**
- Example HTML:
-
- <div class="text-ellipsis">
-   <div>
-     <span>...</span>
-   </div>
- </div>
-
-*/
-
-.text-ellipsis {
-  min-width: 0;
-
-  div {
-    display: flex;
-
-    span {
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      word-wrap: normal;
+    svg {
+      color: $color-text-green;
     }
+  }
+
+  span {
+    color: $color-text-green;
+  }
+}
+
+.tweet-button:nth-child(3):hover {
+  > :first-child {
+    background-color: $color-hover-red;
+
+    svg {
+      color: $color-text-red;
+    }
+  }
+
+  span {
+    color: $color-text-red;
+  }
+}
+
+@include lt-sm {
+  .tweet-button:last-child {
+    margin-right: -8px;
+  }
+}
+
+@include xxs {
+  .tweet-button:nth-child(4) {
+    display: none;
   }
 }
 </style>

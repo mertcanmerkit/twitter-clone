@@ -122,3 +122,27 @@ main {
     border-radius: 9999px;
   }
 }
+
+/* ==========================================================================
+   Text Ellipsis
+   ========================================================================== */
+
+/**
+ Example HTML:
+
+ <div class="text-ellipsis-container">
+     <span class="text-ellipsis">...</span>
+ </div>
+
+*/
+
+.text-ellipsis-container {
+  overflow: hidden;
+
+  .text-ellipsis {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
